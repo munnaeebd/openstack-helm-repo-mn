@@ -2,6 +2,68 @@
 openstack-helm-repo-mn
 
 ~~~
+git clone --single-branch --branch v1.5.4 https://github.com/rook/rook.git
+cd rook/cluster/examples/kubernetes/ceph
+kubectl create -f crds.yaml -f common.yaml -f operator.yaml
+
+vi cluster.yaml
+/////////////////////////////////
+ mgr:
+    modules:
+    # Several modules should not need to be included in this list. The "dashboard" and "monitoring" modules
+    # are already enabled by other settings in the cluster CR.
+    - name: pg_autoscaler
+      enabled: true
+  # enable the ceph dashboard for viewing cluster status
+  dashboard:
+    enabled: true
+....................
+  network:
+          # enable host networking
+    provider: host
+.............................
+  placement:
+    mon:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: "role"
+              operator: In
+              values:
+              - ceph-mon
+              
+.........................................
+
+  storage: # cluster level storage configuration and selection
+    useAllNodes: false
+    useAllDevices: false
+    
+    nodes:
+    - name: "osd1"
+      devices:
+      - name: "vdb" # Whole storage device
+      config:         # cluster level config
+        storeType: bluestore
+
+    - name: "osd2"
+      devices:
+      - name: "vdb" # Whole storage device
+      config:         # cluster level config
+        storeType: bluestore
+
+    - name: "osd3"
+      devices:
+      - name: "vdb" # Whole storage device
+      config:         # cluster level config
+        storeType: bluestore 
+
+kubectl create -f cluster.yaml
+
+
+
+
+~~~
 mkdir {git,openstack-helm}
 cd openstack-helm
 git clone https://github.com/openstack/openstack-helm.git
