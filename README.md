@@ -22,6 +22,20 @@ make {keystone,horizon,glance,cinder,nova,placement,neutron,heat}
 cp  ~/openstack-helm/openstack-helm/*.tgz ~/git/openstack-helm-repo-mn/
 cp  ~/openstack-helm/openstack-helm-infra/*.tgz ~/git/openstack-helm-repo-mn/
 
+cd ~/git/openstack-helm-repo-mn/
+
+tar -zxf  ingress-0.2.1.tgz
+do the same for all
+
+rm -f *.tgz
+git add .
+git commit -m "Adding openstack helm chart to repo"
+git config --global user.email "munnaeebd@gmail.com"
+git config --global user.name "munnaeebd"
+git add .
+git commit -m "Adding openstack helm chart to repo"
+git push
+
 
 ~~~
 
