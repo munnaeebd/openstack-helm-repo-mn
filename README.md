@@ -60,7 +60,7 @@ vi cluster.yaml
 
 kubectl create -f cluster.yaml
 
-
+~~~
 
 
 ~~~
