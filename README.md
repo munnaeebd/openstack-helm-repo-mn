@@ -60,6 +60,8 @@ vi cluster.yaml
 
 kubectl create -f cluster.yaml
 
+kubectl create -f csi/rbd/storageclass.yaml 
+(change the SC name "general")
 ~~~
 
 
