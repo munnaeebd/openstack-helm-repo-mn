@@ -146,8 +146,8 @@ data:
   
   ~~~
   
-  ~~~
-  root@master:~# cat cindar-configmp.yaml
+~~~
+root@master:~# cat cindar-configmp.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -157,7 +157,7 @@ data:
   ceph.conf: |
     [global]
     mon_host = 192.168.101.166:6789,192.168.101.169:6789,192.168.101.165:6789
-  ~~~
+~~~
   
   ~~~
   root@master:~# cat rabbit-svc.yaml
