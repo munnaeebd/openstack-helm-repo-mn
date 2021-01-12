@@ -134,6 +134,9 @@ spec:
 
 
 ~~~
+
+collect admin keyring and make base64
+
 root@master:~# cat ceph-admin-keyring.yaml
 apiVersion: v1
 kind: Secret
