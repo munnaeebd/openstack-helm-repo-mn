@@ -1649,6 +1649,9 @@ conf:
       scheduler_host_manager: ironic_host_manager
       compute_driver: ironic.IronicDriver
   libvirt:
+
+    virt_type: qemu
+    cpu_mode: none
     # Get the IP address to be used as the target for live migration traffic using interface name.
     # If this option is set to None, the hostname of the migration target compute node will be used.
     live_migration_interface:
