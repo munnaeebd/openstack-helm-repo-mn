@@ -188,4 +188,14 @@ spec:
   ~~~
 
 
+# Troubleshooting:
+~~~
+Mariadb
+kubectl -n openstack delete cm mariadb-mariadb-state
+
+if old data exist error show
+~~~
+
+
+
 
